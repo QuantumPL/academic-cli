@@ -8,6 +8,7 @@ toml = "*"
 requests = "*"
 bibtexparser = "==1.1.0"
 "ruamel.yaml" = "==0.16.10"
+academic = {editable = true, path = "."}
 
 [dev-packages]
 pytest = "*"
@@ -15,3 +16,4 @@ flake8 = "*"
 twine = "*"
 black = "==19.10b0"
 isort = "*"
+academic = {editable = true, path = "."}
