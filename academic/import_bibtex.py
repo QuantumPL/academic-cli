@@ -106,7 +106,9 @@ def parse_bibtex_entry(
         log.error(f'Invalid date for entry `{entry["ID"]}`.')
 
     page.fm["date"] = "-".join([year, month, day])
-    page.fm["publishDate"] = timestamp
+
+    if not overwrite:
+        page.fm["publishDate"] = timestamp
 
     authors = None
     if "author" in entry:
