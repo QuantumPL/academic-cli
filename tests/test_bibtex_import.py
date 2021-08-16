@@ -22,7 +22,6 @@ def _process_bibtex(file, expected_count=1) -> "typing.List[EditableFM]":
     :return: The parsed metadata as a list of EditableFM
     """
     parser = BibTexParser(common_strings=True)
-    parser.customization = import_bibtex.convert_to_unicode
     parser.ignore_nonstandard_types = False
     with Path(bibtex_dir, file).open("r", encoding="utf-8") as bibtex_file:
         bib_database = bibtexparser.load(bibtex_file, parser=parser)

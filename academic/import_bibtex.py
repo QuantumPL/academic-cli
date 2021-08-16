@@ -10,7 +10,6 @@ import bibtexparser
 from bibtexparser.bibdatabase import BibDatabase
 from bibtexparser.bparser import BibTexParser
 from bibtexparser.bwriter import BibTexWriter
-from bibtexparser.customization import convert_to_unicode
 
 from academic import utils
 from academic.editFM import EditableFM
@@ -32,7 +31,6 @@ def import_bibtex(
     # Load BibTeX file for parsing.
     with open(bibtex, "r", encoding="utf-8") as bibtex_file:
         parser = BibTexParser(common_strings=True)
-        parser.customization = convert_to_unicode
         parser.ignore_nonstandard_types = False
         bib_database = bibtexparser.load(bibtex_file, parser=parser)
         for entry in bib_database.entries:
@@ -162,6 +160,16 @@ def parse_bibtex_entry(
     if links:
         page.fm["links"] = links
 
+    if "note" in entry:
+        sane_note = re.split("~| ", clean_bibtex_str(entry["note"]))
+        for idx, word in enumerate(sane_note):
+            if word[0:4] == "cite" and len(word) > 4:
+                sane_note[idx] = "[[" + word[4:] + "](../" + word[4:] + ")]"
+            elif word[0:7] == "urlhttp":
+                sane_note[idx] = word[3:]
+
+        page.content = " ".join(sane_note)
+
     # Save Markdown file.
     try:
         log.info(f"Saving Markdown to '{markdown_path}'")
@@ -172,16 +180,16 @@ def parse_bibtex_entry(
     return page
 
 
-def slugify(s, lower=True):
+def slugify(s, lower=False):
     bad_symbols = (".", "_", ":")  # Symbols to replace with hyphen delimiter.
     delimiter = "-"
     good_symbols = (delimiter,)  # Symbols to keep.
     for r in bad_symbols:
         s = s.replace(r, delimiter)
 
-    s = re.sub(r"(\D+)(\d+)", r"\1\-\2", s)  # Delimit non-number, number.
-    s = re.sub(r"(\d+)(\D+)", r"\1\-\2", s)  # Delimit number, non-number.
-    s = re.sub(r"((?<=[a-z])[A-Z]|(?<!\A)[A-Z](?=[a-z]))", r"\-\1", s)  # Delimit camelcase.
+    # s = re.sub(r"(\D+)(\d+)", r"\1\-\2", s)  # Delimit non-number, number.
+    # s = re.sub(r"(\d+)(\D+)", r"\1\-\2", s)  # Delimit number, non-number.
+    # s = re.sub(r"((?<=[a-z])[A-Z]|(?<!\A)[A-Z](?=[a-z]))", r"\-\1", s)  # Delimit camelcase.
     s = "".join(c for c in s if c.isalnum() or c in good_symbols).strip()  # Strip non-alphanumeric and non-hyphen.
     s = re.sub("-{2,}", "-", s)  # Remove consecutive hyphens.
 
