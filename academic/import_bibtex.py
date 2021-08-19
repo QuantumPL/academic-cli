@@ -68,6 +68,34 @@ def parse_bibtex_entry(
     db = BibDatabase()
     db.entries = [entry]
     writer = BibTexWriter()
+    writer.display_order = [
+        "title",
+        "shorttitle",
+        "author",
+        "year",
+        "month",
+        "day",
+        "journal",
+        "booktitle",
+        "editor",
+        "publisher",
+        "school",
+        "institution",
+        "address",
+        "series",
+        "volume",
+        "number",
+        "pages",
+        "numpages",
+        "crossref",
+        "doi",
+        "archiveprefix",
+        "eprint",
+        "url",
+        "abstract",
+        "category",
+        "note",
+    ]
     if not dry_run:
         with open(cite_path, "w", encoding="utf-8") as f:
             f.write(writer.write(db))
