@@ -188,6 +188,13 @@ def parse_bibtex_entry(
     if links:
         page.fm["links"] = links
 
+    series_content = ""
+    if "series" in entry and all(
+        clean_bibtex_str(entry["series"]) != s for s in ["Electronic Proceedings in Theoretical Computer Science", "Lecture Notes in Computer Science", "Electronic Notes in Theoretical Computer Science", "Leibniz International Proceedings in Informatics (LIPIcs)"]
+    ):
+        series_content = clean_bibtex_str(entry["series"]) + ". "
+
+    note_content = ""
     if "note" in entry:
         sane_note = re.split("~| ", clean_bibtex_str(entry["note"]))
         for idx, word in enumerate(sane_note):
@@ -196,7 +203,9 @@ def parse_bibtex_entry(
             elif word[0:7] == "urlhttp":
                 sane_note[idx] = word[3:]
 
-        page.content = " ".join(sane_note)
+        note_content = " ".join(sane_note)
+
+    page.content = series_content + note_content
 
     # Save Markdown file.
     try:
