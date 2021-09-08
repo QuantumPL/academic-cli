@@ -93,6 +93,7 @@ def parse_bibtex_entry(
         "eprint",
         "url",
         "abstract",
+        "keywords",
         "category",
         "note",
     ]
