@@ -268,11 +268,21 @@ def clean_bibtex_authors(author_str):
 
         authors.append(" ".join(first_names) + " " + last_name)
 
+        for idx, author in enumerate(authors):
+            authors[idx] = clean_bibtex_str(author)
+
     return authors
 
 
 def clean_bibtex_str(s):
     """Clean BibTeX string and escape TOML special characters"""
+    s = s.replace("{\\u a}", "ă")
+    s = s.replace('{\\"u}', "ü")
+    s = s.replace("{\\'e}", "é")
+    s = s.replace("{\\c c}", "ç")
+    s = s.replace("{\\^i}", "î")
+    s = s.replace('{\\"O}', "Ö")
+    s = s.replace('{\\"a}', "ä")
     s = s.replace("\\", "")
     s = s.replace('"', '\\"')
     s = s.replace("{", "").replace("}", "")
