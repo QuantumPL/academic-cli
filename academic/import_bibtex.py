@@ -190,7 +190,13 @@ def parse_bibtex_entry(
 
     series_content = ""
     if "series" in entry and all(
-        clean_bibtex_str(entry["series"]) != s for s in ["Electronic Proceedings in Theoretical Computer Science", "Lecture Notes in Computer Science", "Electronic Notes in Theoretical Computer Science", "Leibniz International Proceedings in Informatics (LIPIcs)"]
+        clean_bibtex_str(entry["series"]) != s
+        for s in [
+            "Electronic Proceedings in Theoretical Computer Science",
+            "Lecture Notes in Computer Science",
+            "Electronic Notes in Theoretical Computer Science",
+            "Leibniz International Proceedings in Informatics (LIPIcs)",
+        ]
     ):
         series_content = clean_bibtex_str(entry["series"]) + ". "
 
@@ -270,6 +276,7 @@ def clean_bibtex_str(s):
     s = s.replace('"', '\\"')
     s = s.replace("{", "").replace("}", "")
     s = s.replace("\t", " ").replace("\n", " ").replace("\r", "")
+    s = s.replace("rangle", "\\rangle")
     return s
 
 
