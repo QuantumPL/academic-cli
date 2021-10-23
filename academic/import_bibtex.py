@@ -197,6 +197,7 @@ def parse_bibtex_entry(
             "Lecture Notes in Computer Science",
             "Electronic Notes in Theoretical Computer Science",
             "Leibniz International Proceedings in Informatics (LIPIcs)",
+            "OpenAccess Series in Informatics (OASIcs)",
         ]
     ):
         series_content = clean_bibtex_str(entry["series"]) + ". "
