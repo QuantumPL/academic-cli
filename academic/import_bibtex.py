@@ -85,6 +85,7 @@ def parse_bibtex_entry(
         "series",
         "volume",
         "number",
+        "eid",
         "pages",
         "numpages",
         "crossref",
