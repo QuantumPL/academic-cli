@@ -1,8 +1,12 @@
-# Hugo Academic CLI
+# [Hugo Academic CLI](https://github.com/wowchemy/hugo-academic-cli)
 
-[![Download from PyPI](https://img.shields.io/pypi/v/academic.svg)](https://pypi.python.org/pypi/academic)
-[![Download from Anaconda](https://anaconda.org/conda-forge/academic/badges/version.svg)](https://anaconda.org/conda-forge/academic)
-[![License](https://img.shields.io/pypi/l/academic.svg)](https://pypi.python.org/pypi/academic)
+[![Download from PyPI](https://img.shields.io/pypi/v/academic.svg?style=for-the-badge)](https://pypi.python.org/pypi/academic)
+[![Conda](https://img.shields.io/conda/v/conda-forge/academic?label=CONDA&style=for-the-badge)](https://anaconda.org/conda-forge/academic)
+[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/gcushen?label=%E2%9D%A4%EF%B8%8F%20sponsor&style=for-the-badge)](https://github.com/sponsors/gcushen)
+[![Twitter Follow](https://img.shields.io/twitter/follow/georgecushen?label=Follow%20on%20Twitter&style=for-the-badge)](https://twitter.com/GeorgeCushen)
+[![GitHub followers](https://img.shields.io/github/followers/gcushen?label=Follow%20on%20GH&style=for-the-badge)](https://github.com/gcushen)  
+
 
 ### 📚 Import publications from your reference manager to [Hugo](https://gohugo.io/)
 
@@ -24,7 +28,7 @@ To help us develop this Academic CLI tool and the associated Wowchemy software s
 
 Support development of the Academic CLI:
 
-  - ❤️ [Become a **backer** and **unlock rewards**](https://wowchemy.com/sponsor/)
+  - ❤️ [Become a **GitHub Sponsor** and **unlock perks**](https://github.com/sponsors/gcushen)
   - ☕️ [**Donate a coffee**](https://paypal.me/cushen)
   - 👩‍💻 [**Contribute**](#contribute)
 
@@ -63,24 +67,38 @@ Use the `cd` command to navigate to your website folder in the terminal:
 
 **Import publications:**
 
+Say we downloaded our publications from our reference manager, such as Zotero, to a file named `my_publications.bib` within the website folder. We can import them into the default `content/publication/` folder with:
+
     academic import --bibtex my_publications.bib
+
+**Import publications to a specific folder (e.g. `content/zh/publication`):**
+
+Say our site has multiple languages, we may want to output the publications to a specific folder with:
+
+    academic import --bibtex my_publications.bib --publication-dir content/zh/publication/
 
 Optional arguments:
 
-* `--help` Help
-* `--featured` Flag publications as *featured* (to appear in *Featured Publications* widget)
-* `--overwrite` Overwrite existing publications
-* `--publication-dir PUBLICATION_DIR` Path to your publications directory (defaults to `publication`)
-* `--normalize` Normalize tags by converting them to lowercase and capitalizing the first letter
+* `--publication-dir PUBLICATION_DIR` Folder to import publications to (defaults to `content/publication`)
+* `--overwrite` Overwrite any existing publications in the output folder
+* `--normalize` Normalize tags by converting them to lowercase and capitalizing the first letter (e.g. "sciEnCE" -> "Science")
+* `--featured` Flag these publications as *featured* (to appear in *Featured Publications* widget)
 * `--verbose` or `-v` Show verbose messages
+* `--help` Help
 
-After importing publications, [a full text PDF and image can be associated with each item and further details added via extra parameters](https://wowchemy.com/docs/content/publications/#command-line).
+After importing publications, [a full text PDF and image can be associated with each item and further details added via extra parameters](https://wowchemy.com/docs/content/publications/).
 
 **Run a Hugo command (pass-through):**
 
     academic server
 
 ## Contribute
+
+Interested in contributing to **open source** and **open science**?
+
+Learn [how to contribute code on Github](https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940).
+
+Check out the [open issues](https://github.com/wowchemy/hugo-academic-cli/issues) and contribute a [Pull Request](https://github.com/wowchemy/hugo-academic-cli/pulls). 
 
 For local development, clone this repository and use Pipenv to install the tool using the following commands:
 
@@ -99,6 +117,8 @@ Preparing a contribution:
 
 Copyright 2018-present [George Cushen](https://georgecushen.com).
 
-Licensed under the [MIT License](https://github.com/wowchemy/hugo-academic-cli/blob/master/LICENSE.md).
+Licensed under the [MIT License](https://github.com/wowchemy/hugo-academic-cli/blob/main/LICENSE.md).
 
-[![Analytics](https://ga-beacon.appspot.com/UA-78646709-2/hugo-academic-cli/readme?pixel)](https://github.com/igrigorik/ga-beacon)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/academic?label=PyPi%20Downloads&style=for-the-badge)
+![Conda](https://img.shields.io/conda/dn/conda-forge/academic?label=Conda%20Downloads&style=for-the-badge)
+[![License](https://img.shields.io/pypi/l/academic.svg?style=for-the-badge)](https://github.com/wowchemy/hugo-academic-cli/blob/main/LICENSE.md)
