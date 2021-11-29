@@ -288,6 +288,8 @@ def clean_bibtex_str(s):
     s = s.replace('{\\"a}', "ä")
     s = s.replace("\\", "")
     s = s.replace('"', '\\"')
+    s = s.replace("``", '"')
+    s = s.replace("''", '"')
     s = s.replace("{", "").replace("}", "")
     s = s.replace("\t", " ").replace("\n", " ").replace("\r", "")
     s = s.replace("rangle", "\\rangle")
