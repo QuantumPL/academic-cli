@@ -159,7 +159,7 @@ def parse_bibtex_entry(
     page.fm["featured"] = featured
 
     # Publication name.
-    if "booktitle" in entry:
+    if "booktitle" in entry and pubtype != PublicationType.Book:
         publication = "*" + clean_bibtex_str(entry["booktitle"]) + "*"
     elif "journal" in entry:
         publication = "*" + clean_bibtex_str(entry["journal"]) + "*"
