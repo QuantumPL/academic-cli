@@ -97,6 +97,8 @@ def parse_bibtex_entry(
         "keywords",
         "category",
         "note",
+        "webnote",
+        "bibsource",
     ]
     if not dry_run:
         with open(cite_path, "w", encoding="utf-8") as f:
@@ -204,8 +206,8 @@ def parse_bibtex_entry(
         series_content = clean_bibtex_str(entry["series"]) + ". "
 
     note_content = ""
-    if "note" in entry:
-        sane_note = re.split("~| ", clean_bibtex_str(entry["note"]))
+    if "webnote" in entry:
+        sane_note = re.split("~| ", clean_bibtex_str(entry["webnote"]))
         for idx, word in enumerate(sane_note):
             if word[0:4] == "cite" and len(word) > 4:
                 sane_note[idx] = "[[" + word[4:] + "](../" + word[4:] + ")]"
