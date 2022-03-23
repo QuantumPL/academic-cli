@@ -1,8 +1,4 @@
-.PHONY: black lint test publish
-
-format:
-	isort --profile black .
-	black .
+.PHONY: lint test publish
 
 lint:
 	flake8

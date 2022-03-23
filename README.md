@@ -1,6 +1,6 @@
 # Academic CLI
 
-NOTE: Fork of https://github.com/wowchemy/hugo-academic-cli
+NOTE: Fork of <https://github.com/wowchemy/hugo-academic-cli>
 
 ### 📚 Import publications from your reference manager to [Hugo](https://gohugo.io/)
 
@@ -46,7 +46,6 @@ For local development, clone this repository and use Pipenv to install the tool 
 Preparing a contribution:
 
 - Lint: `make lint`
-- Format: `make format`
 - Test: `make test`
 
 ## License
