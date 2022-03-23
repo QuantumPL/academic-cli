@@ -2,7 +2,7 @@
 
 NOTE: Fork of <https://github.com/wowchemy/hugo-academic-cli>
 
-### 📚 Import publications from your reference manager to [Hugo](https://gohugo.io/)
+## 📚 Import publications from your reference manager to [Hugo](https://gohugo.io/)
 
 **Features**
 
