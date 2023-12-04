@@ -4,17 +4,17 @@ NOTE: Fork of <https://github.com/wowchemy/hugo-academic-cli>
 
 ## 📚 Import publications from your reference manager to [Hugo](https://gohugo.io/)
 
-**Features**
+### Features
 
 * Import publications, including **books, conference proceedings and journals**, from your reference manager to your static site generator
   * Simply export a BibTeX file from your reference manager, such as [Zotero](https://www.zotero.org), and provide this as the input
 * Hugo command pass-through
 
-**Help:**
+### Help
 
     academic
 
-**Import publications:**
+### Import publications
 
     academic import --bibtex my_publications.bib
 
@@ -27,9 +27,9 @@ Optional arguments:
 * `--normalize` Normalize tags by converting them to lowercase and capitalizing the first letter
 * `--verbose` or `-v` Show verbose messages
 
-After importing publications, [a full text PDF and image can be associated with each item and further details added via extra parameters](https://wowchemy.com/docs/content/publications/#command-line).
+After importing publications, [a full-text PDF and image can be associated with each item and further details added via extra parameters](https://wowchemy.com/docs/content/publications/#command-line).
 
-**Run a Hugo command (pass-through):**
+### Run a Hugo command (pass-through)
 
     academic server
 
@@ -45,8 +45,8 @@ For local development, clone this repository and use Pipenv to install the tool 
 
 Preparing a contribution:
 
-- Lint: `make lint`
-- Test: `make test`
+* Lint: `make lint`
+* Test: `make test`
 
 ## License
 

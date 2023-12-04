@@ -14,4 +14,4 @@ academic = {editable = true, path = "."}
 pytest = "*"
 flake8 = "*"
 twine = "*"
-academic = {editable = true, path = "."}
+academic = {file = ".", editable = true}
